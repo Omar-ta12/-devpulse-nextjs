@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,CartesianGrid } from "recharts";
 import SectionTitle from "../shared/SectionTitle";
 import StatCard from "../shared/StatCard";
 import { Globe, Users } from "lucide-react";
@@ -46,29 +46,50 @@ export default function CountriesPanel({ countryStats }) {
 
         <div className="w-full h-[350px] min-w-0">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData}>
-              <XAxis
-                dataKey="country"
-                tick={{ fill: "var(--text-secondary)" }}
-                axisLine={{ stroke: "var(--border)" }}
-                tickLine={{ stroke: "var(--border)" }}
-              />
-              <YAxis
-                tick={{ fill: "var(--text-secondary)" }}
-                axisLine={{ stroke: "var(--border)" }}
-                tickLine={{ stroke: "var(--border)" }}
-              />
-              <Tooltip
-                formatter={(value) => value.toLocaleString()}
-                contentStyle={{
-                  background: "var(--surface)",
-                  color: "var(--text-primary)",
-                  border: "1px solid var(--border)",
-                }}
-              />
-              <Bar dataKey="population" fill="#0ea5e9" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+  <BarChart
+    data={chartData}
+    margin={{
+      top: 10,
+      right: 20,
+      left: 30,
+      bottom: 10,
+    }}
+  >
+    <XAxis
+      dataKey="country"
+      padding={{ left: 20, right: 20 }}
+      tick={{ fill: "var(--text-secondary)" }}
+      axisLine={{ stroke: "#64748b", strokeWidth: 1 }}
+      tickLine={{ stroke: "#64748b", strokeWidth: 1 }}
+    />
+
+    <YAxis
+      width={80}
+      tick={{ fill: "var(--text-secondary)" }}
+      axisLine={{ stroke: "#64748b", strokeWidth: 1 }}
+      tickLine={{ stroke: "#64748b", strokeWidth: 1 }}
+    />
+
+    <Tooltip
+      formatter={(value) => value.toLocaleString()}
+      contentStyle={{
+        background: "var(--surface)",
+        color: "var(--text-primary)",
+        border: "1px solid var(--border)",
+      }}
+    />
+
+    <Bar
+      dataKey="population"
+      fill="#0ea5e9"
+      radius={[4, 4, 0, 0]}
+    />
+    <CartesianGrid
+  stroke="rgba(255,255,255,0.12)"
+  vertical={false}
+/>
+  </BarChart>
+</ResponsiveContainer>
         </div>
       </div>
 
