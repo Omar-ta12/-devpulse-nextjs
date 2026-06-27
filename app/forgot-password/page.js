@@ -38,8 +38,8 @@ const ForgotPasswordPage = () => {
           Enter your email and we'll send you a reset link.
         </p>
         
-        {error && <p className="text-red-400 mb-4 text-center text-sm">{error}</p>}
-        {message && <p className="text-green-400 mb-4 text-center text-sm">{message}</p>}
+        {error && <p className="!text-red-400 mb-4 text-center text-sm">{error}</p>}
+        {message && <p className="!text-green-400 mb-4 text-center text-sm">{message}</p>}
         
         <form onSubmit={handleSubmit} className="flex flex-col">
           <input

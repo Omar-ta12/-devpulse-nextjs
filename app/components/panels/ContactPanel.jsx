@@ -79,8 +79,8 @@ const ContactPanel = () => {
       <div>
         <SectionTitle title="Contact Us" />
         <div className="max-w-[560px] mx-auto bg-[var(--surface)] p-8 rounded-xl border border-[var(--border)] text-center shadow-sm">
-          <h2 className="text-green-400 mb-4 text-2xl font-bold">✅ Thank You!</h2>
-          <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+          <h2 className="!text-green-400 mb-4 text-2xl font-bold">✅ Thank You!</h2>
+          <p className="!text-green-400 mb-6 leading-relaxed">
             Your message has been sent successfully. We appreciate your feedback.
           </p>
           <button
@@ -109,7 +109,7 @@ const ContactPanel = () => {
             aria-invalid={touched.name && !!errors.name}
           />
           {touched.name && errors.name && (
-            <p className="text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.name}</p>
+            <p className="!text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.name}</p>
           )}
 
           <input
@@ -123,7 +123,7 @@ const ContactPanel = () => {
             aria-invalid={touched.email && !!errors.email}
           />
           {touched.email && errors.email && (
-            <p className="text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.email}</p>
+            <p className="!text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.email}</p>
           )}
 
           <textarea
@@ -136,7 +136,7 @@ const ContactPanel = () => {
             aria-invalid={touched.message && !!errors.message}
           />
           {touched.message && errors.message && (
-            <p className="text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.message}</p>
+            <p className="!text-red-400 mb-4 mt-1 text-[13px]" role="alert">{errors.message}</p>
           )}
 
           <button

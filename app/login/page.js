@@ -44,7 +44,7 @@ const LoginPage = () => {
       <div className="bg-slate-800 p-8 rounded-xl w-[360px] text-slate-100 shadow-xl border border-slate-700">
         <h2 className="text-center mb-6 text-2xl font-bold text-sky-400">DevPulse Login</h2>
         
-        {error && <p className="text-red-400 mb-4 text-center text-sm">{error}</p>}
+        {error && <p className="!text-red-400 mb-4 text-center text-sm">{error}</p>}
         
         <form onSubmit={handleSubmit} className="flex flex-col">
           <input

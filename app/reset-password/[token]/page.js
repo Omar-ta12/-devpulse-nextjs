@@ -32,10 +32,10 @@ const ResetPasswordPage = () => {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/auth/reset-password/${token}`, {
+      const res = await fetch('/api/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password })
+        body: JSON.stringify({ token, password })
       });
       const data = await res.json();
       if (!res.ok) return setError(data.message);
@@ -56,8 +56,8 @@ const ResetPasswordPage = () => {
       <div className="bg-slate-800 p-8 rounded-xl w-[360px] text-slate-100 shadow-xl border border-slate-700">
         <h2 className="text-center mb-6 text-2xl font-bold text-sky-400">Reset Password</h2>
         
-        {error && <p className="text-red-400 mb-4 text-center text-sm">{error}</p>}
-        {message && <p className="text-green-400 mb-4 text-center text-sm">{message} Redirecting to login...</p>}
+        {error && <p className="!text-red-400 mb-4 text-center text-sm">{error}</p>}
+        {message && <p className="!text-green-400 mb-4 text-center text-sm">{message} Redirecting to login...</p>}
         
         <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="relative mb-2">
@@ -81,7 +81,7 @@ const ResetPasswordPage = () => {
           {showRules && (
             <ul className="list-none p-0 m-0 mb-4 text-[12px] flex flex-col gap-1">
               {rules.map((rule, i) => (
-                <li key={i} className={`flex items-center gap-1.5 ${rule.test ? 'text-green-400' : 'text-slate-400'}`}>
+                <li key={i} className={`flex items-center gap-1.5 ${rule.test ? '!text-green-400' : '!text-slate-400'}`}>
                   <span>{rule.test ? '✓' : '○'}</span> {rule.text}
                 </li>
               ))}
