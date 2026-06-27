@@ -22,8 +22,8 @@ export async function POST(request) {
     user.resetPasswordExpiry = expiry;
     await user.save({ validateBeforeSave: false });
 
-    // Use FRONTEND_URL or default to localhost for dev
-    const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000';
+    // Use NEXT_PUBLIC_BASE_URL or default to localhost for dev
+    const frontendUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const resetURL = `${frontendUrl}/reset-password/${resetToken}`;
     
     await sendResetEmail(email, resetURL);
